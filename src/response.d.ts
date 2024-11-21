@@ -5,6 +5,7 @@ export interface Root {
   timed_out: boolean;
   _shards: ShardInfo;
   hits: HitInfo;
+  aggregations: Aggregations;
 }
 
 export interface ShardInfo {
@@ -87,4 +88,28 @@ export interface Job {
 
 export interface JobEvent {
   original: string;
+}
+
+export interface Aggregations {
+  EndTime: EndTime;
+}
+
+export interface EndTime {
+  buckets: Bucket[];
+}
+
+export interface Bucket {
+  key_as_string: string;
+  key: number;
+  doc_count: number;
+  CoreHours: CoreHours;
+  Njobs: Njobs;
+}
+
+export interface CoreHours {
+  value: number;
+}
+
+export interface Njobs {
+  value: number;
 }
